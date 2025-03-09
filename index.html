@@ -1,35 +1,437 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guitar-TECHS - Under Construction</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f8f9fa;
-        }
-        .construction-container {
-            text-align: center;
-            max-width: 600px;
-        }
-        .illustration {
-            max-width: 100%;
-            height: auto;
-        }
-    </style>
+    <title>Guitar-TECHS</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/guitar.png">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <div class="construction-container">
-        <img src="https://i.pinimg.com/736x/e7/58/4c/e7584c1c35f7f9da7ff0880c9d640745.jpg" alt="Under Construction Illustration" class="illustration mb-4">
-        <h1 class="display-4">We're Under Construction!</h1>
-        <p class="lead">We are getting ready for ICASSP 2025!</p>
-        <p class="font-weight-light">If you want a preview of the data and do not want to wait until April, please feel free to contact any author in our paper!</p>
+
+<body class="bg-[url('assets/background.png')] bg-fixed bg-[75%] text-gray-900 p-6 ">
+    <div id="container" class="bg-white max-w-6xl mx-auto mt-6">
+
+        <section id="title" class="text-center max-w-6xl mx-auto">
+            <h1 class="text-3xl font-bold mb-4">
+                Guitar-TECHS: An Electric Guitar Dataset Covering Techniques, Musical Excerpts, Chords, and Scales
+            </h1>
+            <div id="authors" class="flex flex-wrap justify-center gap-6 mt-10">
+                <div
+                    class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:bg-gray-50 transition-all duration-200">
+                    <p class="font-semibold text-lg text-gray-800">
+                        <a href="mailto:h.pedroza@correo.ler.uam.mx" class="hover:text-blue-500">Hegel Pedroza</a>
+                    </p>
+                    <p class="text-sm text-gray-600">
+                        <a href="https://www.ler.uam.mx/UAML/" target="_blank" class="hover:text-blue-500">Dept. of Art
+                            & Humanities, UAM Lerma</a>
+                    </p>
+                </div>
+                <div
+                    class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:bg-gray-50 transition-all duration-200">
+                    <p class="font-semibold text-lg text-gray-800">
+                        <a href="mailto:wallace.abreu@smt.ufrj.br" class="hover:text-blue-500">Wallace Abreu</a>
+                    </p>
+                    <p class="text-sm text-gray-600">
+                        <a href="https://www.smt.ufrj.br/" target="_blank" class="hover:text-blue-500">Signals, Media &
+                            Telecom. Lab, UFRJ</a>
+                    </p>
+                </div>
+                <div
+                    class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:bg-gray-50 transition-all duration-200">
+                    <p class="font-semibold text-lg text-gray-800">
+                        <a href="mailto:corey1@uillinois.edu" class="hover:text-blue-500">Ryan M. Corey</a>
+                    </p>
+                    <p class="text-sm text-gray-600">
+                        <a href="https://dpi.uillinois.edu/" target="_blank" class="hover:text-blue-500">Discovery
+                            Partners Institute, UIC</a>
+                    </p>
+                </div>
+                <div
+                    class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:bg-gray-50 transition-all duration-200">
+                    <p class="font-semibold text-lg text-gray-800">
+                        <a href="mailto:iran@ccrma.stanford.edu" class="hover:text-blue-500">Iran R. Roman</a>
+                    </p>
+                    <p class="text-sm text-gray-600">
+                        <a href="https://www.qmul.ac.uk/eecs/" target="_blank" class="hover:text-blue-500">School of
+                            EECS, QMUL</a>
+                    </p>
+                </div>
+            </div>
+            <div class="flex justify-center mt-10">
+                <div
+                    class="grid grid-cols-2 gap-6 items-center bg-gradient-to-r from-blue-300 to-indigo-200 p-6 rounded-lg shadow-lg">
+                    <div class="text-center text-white">
+                        <h3 class="text-2xl font-bold mb-4">Presented on ICASSP 2025:</h3>
+                    </div>
+                    <div class="text-center">
+                        <a href="https://arxiv.org/pdf/2501.03720"
+                            class="transition-transform transform hover:scale-110">
+                            <img class="mx-auto w-16 h-16 rounded-full shadow-lg transition duration-300 ease-in-out hover:shadow-2xl"
+                                src="assets/pdf.png" alt="PDF Icon" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-6 border-gray-300" />
+        </section>
+
+
+        <section id="abstract" class="max-w-3xl mx-auto">
+            <h2 class="text-2xl font-semibold mb-2">Abstract</h2>
+            <p class="text-gray-700 leading-relaxed text-justify italic text-LG">
+                Guitar-related machine listening research involves tasks like timbre transfer, performance generation,
+                and
+                automatic transcription. However, small datasets often limit model robustness due to insufficient
+                acoustic
+                diversity and musical content. To address these issues, we introduce Guitar-TECHS, a comprehensive
+                dataset
+                featuring a variety of guitar techniques, musical excerpts, chords, and scales. These elements are
+                performed
+                by
+                diverse musicians across various recording settings. GuitarTECHSincorporates recordings from two stereo
+                microphones: an egocentric microphone positioned on the performer’s head and an exocentric microphone
+                placed
+                in
+                front of the performer. It also includes direct input recordings and microphoned amplifier outputs,
+                offering
+                a
+                wide spectrum of audio inputs and recording qualities. All signals and MIDI labels are properly
+                synchronized.
+                Its multi-perspective and multi-modal content makes GuitarTECHS a valuable resource for advancing
+                data-driven
+                guitar research, and to develop robust guitar listening algorithms. We provide empirical data to
+                demonstrate
+                the
+                dataset’s effectiveness in training robust models for Guitar Tablature Transcription.
+            </p>
+            <hr class="my-6 border-gray-300" />
+        </section>
+
+
+        <section id="description" class="max-w-4xl mx-auto text-center">
+            <h2 class="text-2xl font-semibold mb-6">What?</h2>
+            <p class="text-lg">
+                Techniques, Musical Excerpts, Chords and Scales played by three different professional players.</p>
+            <br>
+            <p class="text-lg">
+                All recorded in different rooms, utilizing distinct guitars, amplifiers, microphones and audio
+                interfaces
+            </p>
+            <section class="py-12">
+                <div class="max-w-3xl mx-auto">
+                    <div class="relative">
+                        <!-- Carousel images -->
+                        <div class="overflow-hidden rounded-lg">
+                            <div class="carousel-item w-full h-96 bg-center bg-cover"
+                                style="background-image: url('assets/01.jpg');"></div>
+                            <div class="carousel-item w-full h-96 bg-center bg-cover"
+                                style="background-image: url('assets/02.jpg');"></div>
+                            <div class="carousel-item w-full h-96 bg-center bg-cover"
+                                style="background-image: url('assets/03.jpg');"></div>
+                            <div class="carousel-item w-full h-96 bg-center bg-cover"
+                                style="background-image: url('assets/04.jpg');"></div>
+                        </div>
+
+                        <!-- Navigation buttons -->
+                        <button id="prevBtn"
+                            class="opacity-40 absolute top-1/2 left-4 transform -translate-y-1/2 text-white rounded-full hover:scale-110 focus:outline-none transition-all duration-200">
+                            <span class="text-4xl">&#x25C0;</span>
+                        </button>
+
+                        <button id="nextBtn"
+                            class="opacity-40 absolute top-1/2 right-4 transform -translate-y-1/2 text-white rounded-full hover:scale-110 focus:outline-none transition-all duration-200">
+                            <span class="text-4xl">&#x25B6;</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <hr class="my-6 border-gray-300" />
+
+
+        <section id="setup" class="max-w-4xl mx-auto">
+            <h2 class="text-2xl font-semibold mb-2">Recording Setup</h2>
+            <div class="flex flex-wrap items-center gap-6">
+                <p class="text-gray-700 leading-relaxed text-justify mb-4">
+                    Guitars were equipped with a
+                    Fishman Triple Play Connect multi-track MIDI pickup, allowing for the independent and automated
+                    capture of MIDI
+                    notes from each string. The audio output from each guitar was routed through a signal splitter,
+                    allowing us to
+                    send the signal to an audio interface for direct digital collection and an amplifier that
+                    was recorded using a microphone connected to the same audio interface.
+
+                    Additionally, audio was captured from two
+                    perspectives: a player perspective (or egocentric) using a head-mounted stereo microphone, and a
+                    listener (or
+                    exo-centric) perspective also using a stereo microphone but positioned 5 feet directly in front
+                    of
+                    the
+                    performer.
+                </p>
+                <img id="img_setup" src="assets/setup.png" class="w-2/3 mx-auto mb-6">
+            </div>
+        </section>
+
+        <hr class="my-6 border-gray-300" />
+
+        <section id="gear" class="max-w-5xl mx-auto mt-6 mb-6">
+            <h2 class="text-2xl font-semibold mb-4 text-center">Gear Employed</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full border-collapse rounded-lg overflow-hidden shadow-md">
+                    <thead>
+                        <tr class="bg-gray-700 text-white text-left">
+                            <th class="px-4 py-2">Hardware</th>
+                            <th class="px-4 py-2">Player 01</th>
+                            <th class="px-4 py-2">Player 02</th>
+                            <th class="px-4 py-2">Player 03</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="even:bg-gray-100">
+                            <td class="px-4 py-2 font-semibold bg-gray-300">Guitar</td>
+                            <td class="px-4 py-2 cursor-pointer hover:bg-yellow-500 hover:text-white transition duration-200"
+                                onclick="window.open('https://ibanez.fandom.com/wiki/PF300_(1978%E2%80%931979)', '_blank')">
+                                Ibanez PF300
+                            </td>
+                            <td class="px-4 py-2 cursor-pointer hover:bg-yellow-500 hover:text-white transition duration-200"
+                                onclick="window.open('https://www.evhgear.com/gear/shape/wolfgang/wolfgang-wg-standard-exotic-ziricote/5107002522', '_blank')">
+                                EVH Wolfang
+                            </td>
+                            <td class="px-4 py-2 cursor-pointer hover:bg-yellow-500 hover:text-white transition duration-200"
+                                onclick="window.open('https://www.sweetwater.com/store/detail/LCT7AW--sire-larry-carlton-t7-electric-guitar-antique-white', '_blank')">
+                                Sire T7
+                            </td>
+                        </tr>
+                        <tr class="even:bg-gray-100">
+                            <td class="px-4 py-2 font-semibold bg-gray-300">String Gauge</td>
+                            <td class="px-4 py-2 cursor-pointer hover:bg-yellow-500 hover:text-white transition duration-200"
+                                onclick="window.open('https://www.sweetwater.com/store/detail/ECG24--daddario-ecg24-chromes-flatwound-jazz-light-electric-strings-011-050', '_blank')">
+                                0.011 - 0.050
+                            </td>
+                            <td class="px-4 py-2 cursor-pointer hover:bg-yellow-500 hover:text-white transition duration-200"
+                                onclick="window.open('https://www.sweetwater.com/store/detail/EB2223-5pk--ernie-ball-2223-super-slinky-nickel-wound-electric-guitar-strings-009-042-5-pack', '_blank')">
+                                0.009 - 0.042
+                            </td>
+                            <td class="px-4 py-2 cursor-pointer hover:bg-yellow-500 hover:text-white transition duration-200"
+                                onclick="window.open('https://www.sweetwater.com/store/detail/EB2221-5pk--ernie-ball-2221-regular-slinky-nickel-wound-electric-guitar-strings-010-046-5-pack', '_blank')">
+                                0.010 - 0.046
+                            </td>
+                        </tr>
+                        <tr class="even:bg-gray-100">
+                            <td class="px-4 py-2 font-semibold bg-gray-300">Pickup</td>
+                            <td class="px-4 py-2">Bridge</td>
+                            <td class="px-4 py-2">Neck</td>
+                            <td class="px-4 py-2">Bridge-Neck</td>
+                        </tr>
+                        <tr class="even:bg-gray-100">
+                            <td class="px-4 py-2 font-semibold bg-gray-300">Amplifier</td>
+                            <td class="px-4 py-2 cursor-pointer hover:bg-yellow-500 hover:text-white transition duration-200"
+                                onclick="window.open('https://www.sweetwater.com/store/detail/CR60C--orange-crush-cr60c-60-watt-1x12-inch-combo-amp', '_blank')">
+                                Orange CR-60
+                            </td>
+                            <td class="px-4 py-2 cursor-pointer hover:bg-yellow-500 hover:text-white transition duration-200"
+                                onclick="window.open('https://equipboard.com/items/yamaha-yb15-bass-amp', '_blank')">
+                                Yamaha YB-15
+                            </td>
+                            <td class="px-4 py-2 cursor-pointer hover:bg-yellow-500 hover:text-white transition duration-200"
+                                onclick="window.open('https://orangeamps.com/products/guitar-amp-combos/crush-series/crush12/', '_blank')">
+                                Orange CR-12
+                            </td>
+                        </tr>
+                        <tr class="even:bg-gray-100">
+                            <td class="px-4 py-2 font-semibold bg-gray-300">Amp Mic</td>
+                            <td class="px-4 py-2 cursor-pointer hover:bg-yellow-500 hover:text-white transition duration-200"
+                                onclick="window.open('https://www.shure.com/en-US/products/microphones/sm57?variant=SM57-LC', '_blank')">
+                                SM57
+                            </td>
+                            <td class="px-4 py-2 cursor-pointer hover:bg-yellow-500 hover:text-white transition duration-200"
+                                onclick="window.open('https://www.audio-technica.com/en-us/at2020', '_blank')">
+                                AT2020
+                            </td>
+                            <td class="px-4 py-2 cursor-pointer hover:bg-yellow-500 hover:text-white transition duration-200"
+                                onclick="window.open('https://www.behringer.com/behringer/product?modelCode=0506-AAA', '_blank')">
+                                ECM8000
+                            </td>
+                        </tr>
+                        <tr class="even:bg-gray-100">
+                            <td class="px-4 py-2 font-semibold bg-gray-300">Audio Interface</td>
+                            <td class="px-4 py-2 cursor-pointer hover:bg-yellow-500 hover:text-white transition duration-200"
+                                onclick="window.open('https://audient.com/products/audio-interfaces/id14/overview/', '_blank')">
+                                ID 14
+                            </td>
+                            <td class="px-4 py-2 cursor-pointer hover:bg-yellow-500 hover:text-white transition duration-200"
+                                onclick="window.open('https://www.behringer.com/behringer/product?modelCode=0805-AAR', '_blank')">
+                                ID 14
+                            </td>
+                            <td class="px-4 py-2 cursor-pointer hover:bg-yellow-500 hover:text-white transition duration-200"
+                                onclick="window.open('https://www.behringer.com/behringer/product?modelCode=0805-AAR', '_blank')">
+                                ID 14
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <hr class="my-6 border-gray-300" />
+        <section id="data" class="max-w-5xl mx-auto mt-6 mb-6">
+            <h2 class="text-2xl font-semibold mb-4 text-center">Data Content</h2>
+            <table class="w-full border-collapse rounded-lg overflow-hidden shadow-md text-center" id="table2">
+                <thead>
+                    <tr class="bg-gray-700 text-white font-semibold">
+                        <th></th>
+                        <th>Player 01</th>
+                        <th>Player 02</th>
+                        <th>Player 03</th>
+                        <th>Total Dur.</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="even:bg-gray-100">
+                        <td class="bg-gray-300"><strong>Techniques:</strong></td>
+                        <td>138</td>
+                        <td>138</td>
+                        <td>0</td>
+                        <td>00:18:24</td>
+                    </tr>
+                    <tr class="even:bg-gray-100">
+                        <td class="bg-gray-300">- Single Notes</td>
+                        <td>138</td>
+                        <td>138</td>
+                        <td>0</td>
+                        <td>00:18:24</td>
+                    </tr>
+                    <tr class="even:bg-gray-100">
+                        <td class="bg-gray-300">- Palm Mute</td>
+                        <td>138</td>
+                        <td>138</td>
+                        <td>0</td>
+                        <td>00:18:24</td>
+                    </tr>
+                    <tr class="even:bg-gray-100">
+                        <td class="bg-gray-300">- Vibrato</td>
+                        <td>132</td>
+                        <td>132</td>
+                        <td>0</td>
+                        <td>00:17:36</td>
+                    </tr>
+                    <tr class="even:bg-gray-100">
+                        <td class="bg-gray-300">- Pinch Harmonics</td>
+                        <td>132</td>
+                        <td>132</td>
+                        <td>0</td>
+                        <td>00:17:36</td>
+                    </tr>
+                    <tr class="even:bg-gray-100">
+                        <td class="bg-gray-300">- Harmonics</td>
+                        <td>30</td>
+                        <td>30</td>
+                        <td>0</td>
+                        <td>00:04:00</td>
+                    </tr>
+                    <tr class="even:bg-gray-100">
+                        <td class="bg-gray-300">- Bendings</td>
+                        <td>30</td>
+                        <td>30</td>
+                        <td>0</td>
+                        <td>00:04:00</td>
+                    </tr>
+                    <tr class="even:bg-gray-100">
+                        <td class="bg-gray-300"><strong>Musical Excerpts:</strong></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>12</td>
+                        <td>00:08:02</td>
+                    </tr>
+                    <tr class="even:bg-gray-100">
+                        <td class="bg-gray-300"><strong>Chords:</strong></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="even:bg-gray-100">
+                        <td class="bg-gray-300">- Three-Note Chords</td>
+                        <td>624</td>
+                        <td>624</td>
+                        <td>0</td>
+                        <td>01:23:12</td>
+                    </tr>
+                    <tr class="even:bg-gray-100">
+                        <td class="bg-gray-300">- Four-Note Chords</td>
+                        <td>576</td>
+                        <td>576</td>
+                        <td>0</td>
+                        <td>01:16:48</td>
+                    </tr>
+                    <tr class="even:bg-gray-100">
+                        <td class="bg-gray-300"><strong>Scales:</strong></td>
+                        <td>12</td>
+                        <td>12</td>
+                        <td>0</td>
+                        <td>01:04:00</td>
+                    </tr>
+                    <tr class="even:bg-gray-100">
+                        <td class="bg-blue-300"><strong>Grand Total:</strong></td>
+                        <td class="bg-blue-200">1860</td>
+                        <td class="bg-blue-200">1860</td>
+                        <td class="bg-blue-200">12</td>
+                        <td class="bg-blue-200 font-bold">05:12:02</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <hr class="my-6 border-gray-300" />
+        <section id="data" class="max-w-5xl mx-auto mt-6 mb-6">
+            <h2 class="text-2xl font-semibold mb-4 text-center">Download</h2>
+            <p class="text-center">All data is freely available for download and use through a personalized Zenodo
+                repository:</p>
+            <a href="https://zenodo.org/records/14963133?preview=1" target="_blank">
+                <img class="max-w-xs mx-auto rounded-full m-4 transition-ease-in-out duration-500 hover:scale-110"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Zenodo-gradient-square.svg/1200px-Zenodo-gradient-square.svg.png" />
+            </a>
+            <br />
+        </section>
+
+        <script>
+            // Get all the carousel items
+            const items = document.querySelectorAll('.carousel-item');
+            let currentIndex = 0;
+
+            // Hide all carousel items except the current one
+            function showCurrentItem() {
+                items.forEach((item, index) => {
+                    item.classList.add('hidden');
+                    if (index === currentIndex) {
+                        item.classList.remove('hidden');
+                    }
+                });
+            }
+
+            // Show the next item
+            document.getElementById('nextBtn').addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % items.length;
+                showCurrentItem();
+            });
+
+            // Show the previous item
+            document.getElementById('prevBtn').addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + items.length) % items.length;
+                showCurrentItem();
+            });
+
+            // Initialize carousel
+            showCurrentItem();
+
+            // Automatically change the image every 3 seconds
+            setInterval(() => {
+                currentIndex = (currentIndex + 1) % items.length;
+                showCurrentItem();
+            }, 3000); // 3000ms = 3 seconds
+        </script>
     </div>
 </body>
-</html>
+
+</html
