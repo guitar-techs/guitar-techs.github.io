@@ -6,54 +6,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guitar-TECHS</title>
     <link rel="icon" type="image/png" sizes="32x32" href="assets/guitar.png">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
 <body class="bg-[url('assets/background.png')] bg-fixed bg-[75%] text-gray-900 p-6 ">
     <div id="container" class="bg-white max-w-6xl mx-auto mt-6">
 
         <section id="title" class="text-center max-w-6xl mx-auto">
-            <h1 class="text-3xl font-bold mb-4">
+            <h1 class="text-xl md:text-3xl font-bold mb-4">
                 Guitar-TECHS: An Electric Guitar Dataset Covering Techniques, Musical Excerpts, Chords, and Scales
             </h1>
-            <div id="authors" class="flex flex-wrap justify-center gap-6 mt-10">
+            <div id="authors" class="flex flex-wrap justify-center gap-2 mx-auto md:gap-6 w-72 md:w-full mt-10">
                 <div
-                    class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:bg-gray-50 transition-all duration-200">
-                    <p class="font-semibold text-lg text-gray-800">
+                    class="w-68 md:w-auto bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:bg-gray-50 transition-all duration-200">
+                    <p class="font-semibold text-sm sm:text-lg text-gray-800">
                         <a href="https://hepedroza.com" target="_blank" class="hover:text-blue-500">Hegel Pedroza</a>
                     </p>
-                    <p class="text-sm text-gray-600">
+                    <p class="text-xs sm:text-sm text-gray-600">
                         <a href="https://www.ler.uam.mx/UAML/" target="_blank" class="hover:text-blue-500">Dept. of Art
                             & Humanities, UAM Lerma</a>
                     </p>
                 </div>
                 <div
-                    class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:bg-gray-50 transition-all duration-200">
-                    <p class="font-semibold text-lg text-gray-800">
+                    class="w-68 md:w-auto bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:bg-gray-50 transition-all duration-200">
+                    <p class="font-semibold text-sm sm:text-lg text-gray-800">
                         <a href="https://www.linkedin.com/in/wcabreu/?originalSubdomain=br"
                         target="_blank" class="hover:text-blue-500">Wallace Abreu</a>
                     </p>
-                    <p class="text-sm text-gray-600">
+                    <p class="text-xs sm:text-sm text-gray-600">
                         <a href="https://www.smt.ufrj.br/" target="_blank" class="hover:text-blue-500">Signals, Media &
                             Telecom. Lab, UFRJ</a>
                     </p>
                 </div>
                 <div
-                    class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:bg-gray-50 transition-all duration-200">
-                    <p class="font-semibold text-lg text-gray-800">
+                    class="w-68 md:w-auto bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:bg-gray-50 transition-all duration-200">
+                    <p class="font-semibold text-sm sm:text-lg text-gray-800">
                         <a href="https://ece.uic.edu/profiles/corey-ryan/" target="_blank" class="hover:text-blue-500">Ryan M. Corey</a>
                     </p>
-                    <p class="text-sm text-gray-600">
+                    <p class="text-xs sm:text-sm text-gray-600">
                         <a href="https://dpi.uillinois.edu/" target="_blank" class="hover:text-blue-500">Discovery
                             Partners Institute, UIC</a>
                     </p>
                 </div>
                 <div
-                    class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:bg-gray-50 transition-all duration-200">
-                    <p class="font-semibold text-lg text-gray-800">
+                    class="w-68 md:w-auto bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:bg-gray-50 transition-all duration-200">
+                    <p class="font-semibold text-sm sm:text-lg text-gray-800">
                         <a href="https://iranroman.github.io/" target="_blank" class="hover:text-blue-500">Iran R. Roman</a>
                     </p>
-                    <p class="text-sm text-gray-600">
+                    <p class="text-xs sm:text-sm text-gray-600">
                         <a href="https://www.qmul.ac.uk/eecs/" target="_blank" class="hover:text-blue-500">School of
                             EECS, QMUL</a>
                     </p>
@@ -63,7 +63,8 @@
                 <div
                     class="grid grid-cols-2 gap-6 items-center bg-gradient-to-r from-blue-300 to-indigo-200 p-6 rounded-lg shadow-lg">
                     <div class="text-center text-white">
-                        <h3 class="text-2xl font-bold">ICASSP 2025 Paper:</h3>
+                        <h3 class="block text-lg md:hidden text-2xl font-bold">ICASSP 2025 Paper</h3>
+                        <h3 class="hidden text-lg md:block text-2xl font-bold">ICASSP 2025 Paper:</h3>
                     </div>
                     <div class="text-left">
                         <a href="https://arxiv.org/pdf/2501.03720" target="_blank"
@@ -172,13 +173,13 @@
                     the
                     performer.
                 </p>
-                <img id="img_setup" src="assets/setup.png" class="w-2/3 mx-auto mb-6">
+                <img id="img_setup" src="assets/setup.png" class="w-full md:w-2/3 mx-auto mb-6">
             </div>
         </section>
 
-        <hr class="my-6 border-gray-300" />
+        <hr class="hidden md:block my-6 border-gray-300" />
 
-        <section id="gear" class="max-w-5xl mx-auto mt-6 mb-6 ">
+        <section id="gear" class="hidden sm:block max-w-5xl mx-auto mt-6 mb-6 ">
             <h2 class="text-2xl font-semibold mb-4 text-center">Gear Employed</h2>
             <div class="overflow-x-auto">
                 <table class="w-full border-collapse rounded-lg overflow-hidden shadow-md">
@@ -279,7 +280,7 @@
         <hr class="my-6 border-gray-300" />
         <section id="data" class="max-w-5xl mx-auto mt-6 mb-6">
             <h2 class="text-2xl font-semibold mb-4 text-center">Data Content (more than 5 hours of data)</h2>
-            <table class="w-full border-collapse rounded-lg overflow-hidden shadow-md text-center" id="table2">
+            <table class="text-xs sm:text-base w-full border-collapse rounded-lg overflow-hidden shadow-md text-center" id="table2">
                 <thead>
                     <tr class="bg-gray-700 text-white font-semibold">
                         <th></th>
@@ -390,7 +391,7 @@
             <p class="text-center">All data is freely available for download and use through a personalized Zenodo
                 repository:</p>
             <a href="https://zenodo.org/records/14963133" target="_blank">
-                <img class="max-w-xs mx-auto rounded-full m-4 transition-ease-in-out duration-500 hover:scale-110"
+                <img class="w-48 md:w-72 mx-auto rounded-full m-4 transition-ease-in-out duration-500 hover:scale-110"
                     src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Zenodo-gradient-square.svg/1200px-Zenodo-gradient-square.svg.png" />
             </a>
             <p class="text-center text-sm text-gray-500">All data is licensed under a Creative Commons Attribution 4.0
